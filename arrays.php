@@ -117,6 +117,82 @@ echo toUpperCase($text);
 
 echo "<br>";
 
+/* Crear una función que reciba un array de nombres y que convierta la primera letra de cada nombre
+en mayúscula. */
+
+$cats = [
+    "marie",
+    "toulouse",
+    "berlioz",
+    "roquefort",
+    "edgar",
+    "jazz",
+
+];
+
+function toCapitalize($cats){
+    $capitalizedCats = [];
+    
+    foreach ($cats as $cat) {
+        $capitalizedCats[] = ucwords($cat);
+    }
+
+    return $capitalizedCats;
+
+};
+
+print_r(toCapitalize($cats)) ;
+
+// Crear una clase coche con sus atributos y un atributo puede ser de tipo array
+
+class Coche {
+    public $marca;
+    public $color;
+    public $equipamiento;
+    public $puertas;
+
+
+    
+    public function __construct($marca, $color, $equipamiento, $puertas) {
+        $this->marca = $marca;
+        $this->color = $color;
+        $this->equipamiento = $equipamiento;
+        $this->puertas = $puertas;
+    }
+
+    // Crear una función que devuelva la marca del carro.
+    
+    public function getMarca() {
+        return "Coche: {$this->marca}";
+    }
+
+    // Crear una función que devuelva la cantidad de puertas que tiene el carro.
+
+    public function getPuertas() {
+        return "Puertas: {$this->puertas} ";
+    }
+
+    // Crear una función que devuelva un atributo del array.
+
+    public function obtenerEquipamiento($indice) {
+        return $this->equipamiento[$indice];
+    }
+
+}
+
+$equipamiento = ["Aire acondicionado", "GPS", "Asientos de cuero"];
+
+$miCoche = new Coche("Peugeot", "Verde", $equipamiento, 5);
+
+echo $miCoche->getMarca();
+
+echo "<br>";
+
+echo $miCoche ->getPuertas();
+
+echo "<br>";
+
+echo "Equipamiento del coche: " . $miCoche->obtenerEquipamiento(1);
 
 
 ?>
